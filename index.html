@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clicker Game</title>
+    <script
+      src="https://kit.fontawesome.com/7ce8c6fa82.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav class="menu">
+      <ul>
+        <li class="rules">
+          <i class="fa-solid fa-book-quran"></i>
+        </li>
+        <li class="quests">
+          <i class="fa-sharp fa-solid fa-scroll-torah"></i>
+        </li>
+        <li class="shop"><i class="fa-solid fa-sack-dollar"></i></li>
+      </ul>
+    </nav>
+    <div class="menu">
+      <div class="openMenu">
+        <div class="rules">
+          <h2>Rules:</h2>
+          <ul class="rules">
+            <li>Fight the mob,</li>
+            <li>Gather XP,</li>
+            <li>
+              Find diamonds<br />
+              1% chance,
+            </li>
+            <li>Complete quests,</li>
+            <li>Have fun!</li>
+          </ul>
+        </div>
+        <div class="quests">
+          <h2>quests:</h2>
+          <section class="quests">
+            <section class="quest">
+              <span class="lvl">LVL 5:</span>
+              <span class="reward">+ 5 diamonds</span>
+              <span class="progress one">In progress...</span>
+            </section>
+            <section class="quest">
+              <span class="lvl">LVL 10:</span>
+              <span class="reward">+ 10 diamonds</span>
+              <span class="progress two">In progress...</span>
+            </section>
+            <section class="quest">
+              <span class="lvl">LVL 20:</span>
+              <span class="reward">+ 20 diamonds</span>
+              <span class="progress three">In progress...</span>
+            </section>
+            <section class="quest">
+              <span class="lvl">Catch the fly: </span>
+              <span class="reward">+ 5 diamonds</span>
+              <span class="progress four">In progress...</span>
+            </section>
+            <section class="quest">
+              <span class="questCounter">0/4</span>
+            </section>
+          </section>
+        </div>
+        <div class="shop">
+          <h2>shop:</h2>
+          <section class="items">
+            <section class="item">
+              <span class="new">New fly color:</span>
+              <span class="cost">-10 diamonds</span>
+              <button class="buy one hover">BUY</button>
+            </section>
+            <section class="item">
+              <span class="new">New mob color:</span>
+              <span class="cost">-20 diamonds</span>
+              <button class="buy two hover">BUY</button>
+            </section>
+            <section class="item">
+              <span class="new">New background:</span>
+              <span class="cost">-30 diamonds</span>
+              <button class="buy three hover">BUY</button>
+            </section>
+          </section>
+        </div>
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+    </div>
+    <h1 class="click">click on me!</h1>
+    <div class="mob animation2">
+      <div class="left-eye">
+        <div class="left-dot"></div>
+      </div>
+      <div class="right-eye">
+        <div class="right-dot"></div>
+      </div>
+      <div class="mouth"></div>
+      <div class="tongue"></div>
+      <div class="crosshair one">
+        <div class="x"></div>
+        <div class="y"></div>
+      </div>
+      <div class="crosshair two">
+        <div class="x"></div>
+        <div class="y"></div>
+      </div>
+      <div class="crosshair three">
+        <div class="x"></div>
+        <div class="y"></div>
+      </div>
+      <div class="crosshair four animation2">
+        <div class="x"></div>
+        <div class="y"></div>
+      </div>
+      <div class="crosshair five animation2">
+        <div class="x"></div>
+        <div class="y"></div>
+      </div>
+      <div class="crosshair six animation2">
+        <div class="x"></div>
+        <div class="y"></div>
+      </div>
+      <div class="click one">Click!</div>
+      <div class="click two animation2">Click!</div>
+    </div>
+    <div class="clicker"></div>
+
+    <div class="flyBody animation">
+      <div class="flyLeftEye">
+        <div class="flyLeftEyeDot"></div>
+      </div>
+      <div class="flyRightEye">
+        <div class="flyRightEyeDot"></div>
+      </div>
+      <div class="flyLeftWing flyWing"></div>
+      <div class="flyRightWing flyWing"></div>
+    </div>
+    <div class="flyClicker"></div>
+    <div class="catch">you catch the fly!</div>
+    <div class="orb">
+      <div class="small-orb"></div>
+    </div>
+    <div class="fakeOrb"></div>
+    <div class="lvl">Level:<span>1</span></div>
+    <div class="exp">XP 1/100</div>
+    <h2 class="lvlUp">LVL UP!</h2>
+    <h2 class="timer"></h2>
+    <div class="gem">
+      <span>0</span>
+      <i class="fa-solid fa-gem"></i>
+    </div>
+    <div class="plusGem">
+      <i class="fa-solid fa-plus"></i>
+      <i class="fa-solid fa-gem"></i>
+    </div>
+    <footer>@2023 Jakub Gaj</footer>
+    <script src="script.js"></script>
+  </body>
+</html>

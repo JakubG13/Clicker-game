@@ -1,0 +1,979 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@1,700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto Mono", monospace, sans-serif;
+  cursor: default;
+}
+
+body {
+  height: 100vh;
+  background: radial-gradient(
+    circle,
+    rgba(245, 255, 0, 1) 11%,
+    rgba(255, 111, 0, 1) 31%,
+    rgba(0, 142, 255, 1) 58%,
+    rgba(0, 9, 255, 1) 78%,
+    rgba(64, 24, 138, 1) 90%
+  );
+}
+
+body.newColor {
+  background: radial-gradient(
+    circle,
+    rgba(0, 22, 255, 1) 16%,
+    rgba(60, 175, 223, 1) 28%,
+    rgba(60, 118, 223, 1) 33%,
+    rgba(60, 192, 223, 1) 39%,
+    rgba(60, 223, 125, 1) 47%,
+    rgba(104, 223, 60, 1) 58%,
+    rgba(186, 223, 60, 1) 66%,
+    rgba(217, 223, 60, 1) 71%,
+    rgba(223, 60, 60, 1) 85%
+  );
+}
+
+h1 {
+  color: white;
+  font-size: 2rem;
+  text-transform: uppercase;
+  position: fixed;
+  top: 30%;
+  left: 0;
+  width: 60%;
+  margin-left: 20%;
+  text-align: center;
+}
+div.clicker {
+  width: 15rem;
+  height: 15rem;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  border-radius: 100%;
+  cursor: url(icons8-wand-64.png), auto;
+}
+div.mob {
+  width: 15rem;
+  height: 15rem;
+  border-radius: 100%;
+  position: absolute;
+  top: calc(50% - 7.5rem);
+  left: calc(50% - 7.5rem);
+  box-shadow: 0px 0px 40px 10px rgb(0, 0, 0);
+  background: black;
+}
+div.left-eye,
+div.right-eye {
+  position: absolute;
+  width: 4rem;
+  height: 4rem;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0px 0px 7px 7px rgb(255, 255, 255);
+}
+div.left-eye {
+  top: 3.5rem;
+  left: 2rem;
+}
+div.right-eye {
+  top: 2rem;
+  right: 2rem;
+}
+
+div.left-dot,
+div.right-dot {
+  position: absolute;
+  border-radius: 50%;
+  background-color: black;
+  width: 1rem;
+  height: 1rem;
+  box-shadow: 0px 0px 5px 1px rgb(0, 0, 0);
+}
+div.left-dot {
+  top: 2.5rem;
+  left: 1rem;
+  animation: left-eye 1.2s linear infinite;
+}
+div.right-dot {
+  top: 1rem;
+  left: 2rem;
+  animation: right-eye 1.2s linear infinite;
+}
+
+div.mouth {
+  background: white;
+  position: absolute;
+  bottom: 3.5rem;
+  left: 4.5rem;
+  width: 8rem;
+  height: 1.7rem;
+  border-radius: 150px 150px 0px 0px;
+  transform: rotate(168deg);
+  box-shadow: 0px 0px 5px 3px rgb(255, 255, 255);
+}
+
+div.tongue {
+  background-color: red;
+  position: absolute;
+  width: 2rem;
+  height: 1.7rem;
+  top: 9.2rem;
+  left: 9rem;
+  border-radius: 150px 150px 0px 0px;
+  transform: rotate(168deg);
+  animation: tongue 2.5s infinite linear;
+}
+
+@keyframes right-eye {
+  0% {
+    top: 1rem;
+    left: 2rem;
+  }
+  40% {
+    background: linear-gradient(
+      90deg,
+      rgba(0, 52, 255, 1) 0%,
+      rgba(0, 255, 231, 1) 50%,
+      rgba(132, 0, 255, 1) 100%
+    );
+    transform: rotate(0deg);
+  }
+  50% {
+    top: 2.5rem;
+    left: 1rem;
+  }
+  70% {
+    background: black;
+    transform: rotate(720deg);
+  }
+  100% {
+    top: 1rem;
+    left: 2rem;
+  }
+}
+@keyframes left-eye {
+  10% {
+    top: 2rem;
+    left: 0.5rem;
+  }
+
+  30% {
+    top: 1rem;
+    left: 1rem;
+  }
+  40% {
+    background: linear-gradient(
+      90deg,
+      rgba(255, 106, 0, 1) 0%,
+      rgba(236, 255, 0, 1) 50%,
+      rgba(48, 255, 0, 1) 100%
+    );
+    transform: rotate(0deg);
+  }
+  50% {
+    top: 1rem;
+    left: 2.5rem;
+  }
+
+  70% {
+    top: 2.5rem;
+    left: 2.5rem;
+    background: black;
+    transform: rotate(720deg);
+  }
+  85% {
+    top: 3rem;
+    left: 1.5rem;
+  }
+  100% {
+    top: 2.5rem;
+    left: 1rem;
+  }
+}
+
+div.crosshair.one,
+div.crosshair.two,
+div.crosshair.three,
+div.crosshair.four,
+div.crosshair.five,
+div.crosshair.six {
+  position: absolute;
+  opacity: 0;
+}
+div.crosshair.one {
+  top: 10%;
+  left: 46%;
+}
+div.crosshair.two {
+  top: 50%;
+  left: 35%;
+}
+div.crosshair.three {
+  top: 40%;
+  left: 75%;
+}
+div.crosshair.four {
+  top: 80%;
+  left: 55%;
+}
+div.crosshair.five {
+  top: 48%;
+  left: 15%;
+}
+div.crosshair.six {
+  top: 40%;
+  left: 85%;
+}
+
+div.x,
+div.y {
+  background-color: white;
+  position: absolute;
+  transform: scale(0.4);
+}
+div.x {
+  width: 3rem;
+  height: 1rem;
+  top: 1rem;
+  left: -1rem;
+}
+div.y {
+  width: 1rem;
+  height: 3rem;
+  top: 0;
+  left: 0;
+}
+div.crosshair.one.animation,
+div.crosshair.two.animation,
+div.crosshair.three.animation,
+div.crosshair.four.animation2,
+div.crosshair.five.animation2,
+div.crosshair.six.animation2,
+div.click.one.animation,
+div.click.two.animation2 {
+  animation: crosshair 0.2s linear;
+}
+
+@keyframes crosshair {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+div.mob.animation {
+  animation: mob-move 0.1s linear;
+}
+div.mob.animation2 {
+  animation: mob-move2 0.1s linear;
+}
+
+@keyframes mob-move {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(20deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+@keyframes mob-move2 {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-20deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+div.click {
+  color: white;
+  text-transform: uppercase;
+  font-size: 1rem;
+  position: absolute;
+  opacity: 0;
+}
+div.click.one {
+  top: 50%;
+  left: 45%;
+  transform: rotate(-30deg);
+}
+div.click.two {
+  top: 15%;
+  left: 35%;
+  transform: rotate(20deg);
+}
+
+div.flyBody {
+  width: 3.5rem;
+  height: 3.5rem;
+  background: rgb(255, 187, 0);
+  border-radius: 50%;
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  box-shadow: 0px 0px 5px 4px rgb(255, 187, 0);
+}
+
+div.flyLeftEye,
+div.flyRightEye {
+  position: absolute;
+  background-color: black;
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 100px 100px 150px 150px;
+}
+
+div.flyLeftEye {
+  top: 20%;
+  left: 20%;
+}
+div.flyRightEye {
+  top: 20%;
+  right: 20%;
+}
+
+div.flyLeftEyeDot,
+div.flyRightEyeDot {
+  background-color: white;
+  width: 0.2rem;
+  height: 0.2rem;
+  position: absolute;
+  top: 25%;
+  left: 30%;
+  border-radius: 50%;
+}
+
+div.flyLeftWing,
+div.flyRightWing {
+  background-color: yellow;
+  width: 2rem;
+  height: 2rem;
+  position: absolute;
+  box-shadow: 0px 0px 4px 4px yellow;
+  z-index: -1;
+}
+
+div.flyLeftWing {
+  top: 0;
+  left: -30%;
+  transform: rotate(170deg) skew(50deg, 5deg);
+  animation: flyLeftWingMove 0.7s linear infinite;
+}
+div.flyRightWing {
+  transform: rotate(190deg) skew(-50deg, -5deg);
+  top: 0;
+  right: -30%;
+  animation: flyRightWingMove 0.7s linear infinite;
+}
+
+@keyframes flyRightWingMove {
+  0% {
+    transform: rotate(190deg) skew(-50deg, -5deg);
+  }
+  50% {
+    transform: rotate(222deg) skew(-50deg, -5deg);
+  }
+  100% {
+    transform: rotate(190deg) skew(-50deg, -5deg);
+  }
+}
+
+@keyframes flyLeftWingMove {
+  0% {
+    transform: rotate(170deg) skew(50deg, 5deg);
+  }
+  50% {
+    transform: rotate(138deg) skew(50deg, 5deg);
+  }
+  100% {
+    transform: rotate(170deg) skew(50deg, 5deg);
+  }
+}
+
+@keyframes flyMove {
+  0% {
+    top: 20%;
+    left: 10%;
+  }
+  10% {
+    top: 20%;
+    left: 75%;
+  }
+  15% {
+    top: 20%;
+    left: 10%;
+  }
+  20% {
+    top: 20%;
+    left: 75%;
+  }
+  30% {
+    top: 20%;
+    left: 20%;
+  }
+  40% {
+    top: 80%;
+    left: 10%;
+  }
+  50% {
+    top: 20%;
+    left: 10%;
+  }
+  55% {
+    top: 20%;
+    left: 75%;
+  }
+  65% {
+    top: 80%;
+    left: 75%;
+  }
+  70% {
+    top: 80%;
+    left: 20%;
+  }
+  80% {
+    top: 80%;
+    left: 70%;
+  }
+  90% {
+    top: 80%;
+    left: 20%;
+  }
+  100% {
+    top: 20%;
+    left: 10%;
+  }
+}
+
+div.flyClicker {
+  width: 3.5rem;
+  height: 3.5rem;
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  animation: flyMove 9s ease infinite;
+  opacity: 0;
+  cursor: crosshair;
+}
+
+div.flyBody.animation {
+  animation: flyMove 9s ease infinite;
+}
+
+div.catch {
+  text-transform: uppercase;
+  color: yellow;
+  font-size: 1rem;
+  position: fixed;
+  top: 20%;
+  left: 0%;
+  width: 50%;
+  margin-left: calc(50% - 50% / 2);
+  text-align: center;
+  opacity: 0;
+}
+div.catch.animation {
+  animation: catch 4s linear;
+}
+@keyframes catch {
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+div.fakeOrb,
+div.orb {
+  border-radius: 50%;
+  width: 4rem;
+  height: 4rem;
+  position: fixed;
+  bottom: 3%;
+  left: calc(50% - 2rem);
+}
+div.orb {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 255, 235, 1) 17%,
+    rgba(232, 255, 0, 1) 80%
+  );
+  animation: orbMove 4s linear infinite;
+  box-shadow: 0px 0px 15px 15px rgb(0, 255, 235);
+}
+div.small-orb {
+  border-radius: 50%;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: linear-gradient(
+    90deg,
+    rgba(232, 255, 0, 1) 17%,
+    rgba(0, 255, 235, 1) 80%
+  );
+  position: absolute;
+  top: calc(50% - 0.75rem);
+  left: calc(50% - 0.75rem);
+  animation: smallOrbMove 1s linear infinite;
+  box-shadow: 0px 0px 10px 25px rgb(232, 255, 0);
+}
+
+@keyframes orbMove {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes smallOrbMove {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+div.exp,
+div.lvl {
+  color: white;
+  position: fixed;
+}
+div.lvl {
+  font-size: 3rem;
+  top: 3%;
+  left: 3%;
+}
+
+div.exp {
+  font-size: 2rem;
+  top: 10%;
+  left: 3%;
+}
+
+h1.click.animation {
+  animation: invisible 3s linear forwards;
+}
+
+@keyframes invisible {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+div.weaponOrb {
+  border-radius: 50%;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: linear-gradient(
+    90deg,
+    rgba(232, 255, 0, 1) 17%,
+    rgba(0, 255, 235, 1) 80%
+  );
+  position: absolute;
+  top: calc(50% - 0.75rem);
+  left: calc(50% - 0.75rem);
+  box-shadow: 0px 0px 15px 2px rgb(232, 255, 0);
+  animation: weaponOrbMove 0.2s linear forwards;
+}
+
+@keyframes weaponOrbMove {
+  100% {
+    /* top: -600%; */
+    top: calc((50% - 0.75rem - 45vh));
+    left: calc(50% - 0.75rem);
+  }
+}
+
+h2.lvlUp {
+  color: greenyellow;
+  font-size: 2rem;
+  position: fixed;
+  top: 24%;
+  left: 0;
+  width: 50%;
+  margin-left: 25%;
+  text-align: center;
+  opacity: 0;
+}
+h2.lvlUp.animation {
+  animation: visible 3s linear;
+}
+@keyframes visible {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+div.lvl span {
+  color: rgb(253, 239, 47);
+}
+
+h2.timer {
+  position: fixed;
+  bottom: 3%;
+  left: 3%;
+  font-size: 2rem;
+  color: white;
+  opacity: 1;
+}
+
+div.gem {
+  font-size: 2.5rem;
+  color: white;
+  position: fixed;
+  bottom: 3%;
+  right: 3%;
+}
+
+div.gem i {
+  color: rgb(3, 255, 255);
+}
+
+div.plusGem {
+  font-size: 2rem;
+  color: white;
+  position: fixed;
+  top: calc(50% - 1rem);
+  left: 70%;
+  color: rgb(3, 255, 255);
+  opacity: 0;
+}
+div.plusGem.animation {
+  animation: visible 3s linear;
+}
+
+nav.menu {
+  position: fixed;
+  top: calc(50% - 210px / 2);
+  right: 0;
+}
+nav.menu ul {
+  height: 210px;
+  width: 110px;
+  list-style: none;
+  font-size: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+nav.menu ul li.rules {
+  color: limegreen;
+}
+nav.menu ul li.quests {
+  color: deepskyblue;
+}
+nav.menu ul li.shop {
+  color: gold;
+}
+nav.menu ul li {
+  transition: 0.2s;
+  cursor: pointer;
+}
+nav.menu ul li:hover {
+  font-size: 4.8rem;
+}
+nav.menu ul li.rules:hover {
+  text-shadow: 0px 0px 10px limegreen;
+}
+nav.menu ul li.quests:hover {
+  text-shadow: 0px 0px 10px deepskyblue;
+}
+nav.menu ul li.shop:hover {
+  text-shadow: 0px 0px 10px gold;
+}
+nav.menu ul li i {
+  cursor: pointer;
+}
+
+div.openMenu {
+  position: fixed;
+  right: 1%;
+  top: -70%;
+  background-color: rgb(185, 140, 82);
+  width: 10rem;
+  height: 65vh;
+  border-radius: 0 0 150px 150px;
+  z-index: 1;
+  opacity: 1;
+}
+
+div.openMenu i {
+  color: black;
+  font-size: 3rem;
+  position: absolute;
+  bottom: 3%;
+  left: calc(50% - 3rem / 2);
+  cursor: pointer;
+}
+
+@keyframes openingMenu {
+  0% {
+    top: -70%;
+  }
+  100% {
+    top: -1%;
+  }
+}
+@keyframes closingMenu {
+  0% {
+    top: -1%;
+  }
+  100% {
+    top: -70%;
+  }
+}
+
+div.openMenu.animation {
+  animation: openingMenu 0.7s forwards ease;
+}
+div.openMenu.animation2 {
+  animation: closingMenu 0.7s forwards ease;
+}
+
+div.openMenu div {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 10rem;
+  height: 65vh;
+  border-radius: 0 0 150px 150px;
+  opacity: 0;
+}
+
+div.openMenu div.rules {
+  opacity: 0;
+  background-color: rgb(68, 245, 68);
+  box-shadow: 0px 0px 60px 5px rgb(68, 245, 68);
+}
+div.openMenu div.rules ul.rules {
+  font-size: 1.3rem;
+  color: rgb(82, 15, 240);
+  list-style: none;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: center;
+  margin: 0 2px 0 2px;
+}
+
+div.openMenu div.quests {
+  opacity: 0;
+  background-color: deepskyblue;
+  box-shadow: 0px 0px 60px 5px deepskyblue;
+}
+div.openMenu div.quests section.quests {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 50vh;
+}
+div.openMenu div.quests section.quest {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.1rem;
+  text-align: center;
+  margin: 0 2px 0 2px;
+}
+div.openMenu div.quests section.quest span.lvl {
+  color: yellow;
+}
+div.openMenu div.quests section.quest span.reward {
+  color: rgb(0, 4, 255);
+}
+div.openMenu div.quests section.quest span.progress {
+  color: red;
+}
+div.openMenu div.quests section.quest i {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+span.questCounter {
+  font-size: 2rem;
+  color: rgb(145, 34, 135);
+}
+
+div.openMenu div.shop {
+  background-color: gold;
+  opacity: 0;
+  box-shadow: 0px 0px 60px 5px gold;
+}
+div.openMenu div.shop section.items {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 50vh;
+}
+div.openMenu div.shop section.item {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.1rem;
+  text-align: center;
+  margin: 0 2px 0 2px;
+}
+div.openMenu div.shop section.item span.new {
+  color: rgb(255, 121, 11);
+}
+div.openMenu div.shop section.item span.cost {
+  color: rgb(109, 252, 252);
+}
+div.openMenu div.shop section.item button.buy {
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  margin: 0 15px;
+  font-size: 1.5rem;
+  border-radius: 20px;
+  background-color: black;
+  color: white;
+  transition: 0.2s;
+  z-index: -1;
+}
+div.openMenu div.shop section.item button.hover:hover {
+  font-size: 2.2rem;
+  background-color: white;
+  color: black;
+}
+
+div.openMenu div h2 {
+  text-transform: uppercase;
+  color: rgb(0, 255, 255);
+  text-align: center;
+  margin-top: 25px;
+  font-size: 2.2rem;
+  text-shadow: 0px 0px 5px rgb(0, 0, 0);
+}
+
+footer {
+  position: fixed;
+  left: 0%;
+  bottom: 0;
+  color: white;
+}
+
+/* div.catch,
+h2.lvlUp,
+div.plusGem {
+  opacity: 1;
+} */
+
+@media (max-width: 700px) {
+  nav.menu {
+    top: 3%;
+  }
+  div.plusGem {
+    left: calc(75vw + 1rem);
+  }
+  div.openMenu {
+    right: 2%;
+  }
+}
+@media (max-width: 500px) {
+  div.catch {
+    top: 18%;
+  }
+}
+@media (max-width: 420px) {
+  div.plusGem {
+    left: calc(78vw + 1rem);
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-height: 900px) {
+  div.catch {
+    top: 16%;
+  }
+  h2.lvlUp {
+    top: 19%;
+  }
+  h1.click {
+    top: 25%;
+  }
+}
+@media (max-height: 800px) {
+  ul.rules li {
+    height: 30vh;
+    font-size: 1.2rem;
+  }
+  div.openMenu div {
+    height: 70vh;
+  }
+  div.openMenu {
+    top: -90%;
+    height: 70vh;
+  }
+
+  div.openMenu div.quests section.quest {
+    font-size: 0.9rem;
+  }
+}
+@media (max-height: 700px) {
+  h1.click {
+    top: 20%;
+  }
+  ul.rules li {
+    font-size: 1.1rem;
+  }
+  div.openMenu div h2 {
+    font-size: 1.5rem;
+  }
+}
+@media (max-height: 600px) {
+  h1.click {
+    top: 15%;
+  }
+  div.lvl {
+    top: 0%;
+  }
+  div.exp {
+    top: 8%;
+  }
+
+  ul.rules li {
+    font-size: 0.9rem;
+  }
+  div.openMenu div h2 {
+    font-size: 1.3rem;
+  }
+  div.openMenu div.shop section.item {
+    font-size: 0.9rem;
+  }
+  div.openMenu div.shop section.item button.buy {
+    font-size: 0.9rem;
+  }
+}
+@media (max-height: 500px) {
+  div.exp {
+    top: 10%;
+  }
+}
+@media (max-height: 400px) {
+  div.exp {
+    top: 13%;
+  }
+}
